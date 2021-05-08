@@ -1,0 +1,19 @@
+.header {
+    background-color: #535A6E;
+    height: 150px;
+    border-bottom: 3px solid #000;
+}
+
+.h1{
+    position: absolute;
+    left: 5%;
+    top: 6%;
+    font-size: 65px;
+    font-weight:bolder; 
+    line-height: 60px; 
+    letter-spacing: 4px;
+    color: #6EAAE7;
+    text-shadow: 6px 6px 6px #000;
+    margin: 10px 0 24px;
+    text-align: center;
+}
