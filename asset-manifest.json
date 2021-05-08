@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/ReactRTCServer/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/ReactRTCServer/static/js/main.5197610e.chunk.js",
+    "main.js.map": "/ReactRTCServer/static/js/main.5197610e.chunk.js.map",
+    "runtime-main.js": "/ReactRTCServer/static/js/runtime-main.8bb24fe5.js",
+    "runtime-main.js.map": "/ReactRTCServer/static/js/runtime-main.8bb24fe5.js.map",
+    "static/js/2.8f6a47a9.chunk.js": "/ReactRTCServer/static/js/2.8f6a47a9.chunk.js",
+    "static/js/2.8f6a47a9.chunk.js.map": "/ReactRTCServer/static/js/2.8f6a47a9.chunk.js.map",
+    "static/js/3.e8c142ea.chunk.js": "/ReactRTCServer/static/js/3.e8c142ea.chunk.js",
+    "static/js/3.e8c142ea.chunk.js.map": "/ReactRTCServer/static/js/3.e8c142ea.chunk.js.map",
+    "index.html": "/ReactRTCServer/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "/ReactRTCServer/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.8f6a47a9.chunk.js.LICENSE.txt": "/ReactRTCServer/static/js/2.8f6a47a9.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/ReactRTCServer/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8bb24fe5.js",
+    "static/js/2.8f6a47a9.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.5197610e.chunk.js"
+  ]
+}
