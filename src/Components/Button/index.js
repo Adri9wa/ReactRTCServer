@@ -10,7 +10,7 @@ export default class Button extends Component{
     render () {
         const {label} = this.props
         return(
-            <Link to={`${label}`}>
+            <Link to={`/${label}`}>
             <button className = {Styles.button}> <p>{label}</p> </button>
             </Link>
         )
