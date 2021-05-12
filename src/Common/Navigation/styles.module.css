@@ -1,4 +1,6 @@
 .navMenu{
+    position: absolute;
+    left: 0;
     display: flex;
     flex-wrap: wrap;
     margin: 50px 0 50px 0;
