@@ -6,13 +6,13 @@ import Home from '../../Pages/Home'
 /**
  * Main navigation menu.
  */
-export default class Navigation extends Component{
-    render(){
+export default class Navigation extends Component {
+    render() {
         return (
-            <div className = {Styles.navMenu}>
-                <Button label = "Home" Component={Home} />
-                <Button label = "General info"/>
-                <Button label = "Testttt"/>
+            <div className={Styles.navMenu}>
+                <Button label="Home" Component={Home} />
+                <Button label="General info" />
+                <Button label="Testttt" />
             </div>
         )
     }
