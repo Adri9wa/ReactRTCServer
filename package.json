@@ -1,6 +1,9 @@
 {
   "name": "reactrtcserver",
   "version": "0.1.0",
+  "engines": {
+    "node": "15.x"
+  },
   "private": true,
   "homepage": "https://adri9wa.github.io/ReactRTCServer/",
   "dependencies": {
