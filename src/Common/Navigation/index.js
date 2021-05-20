@@ -10,9 +10,9 @@ export default class Navigation extends Component {
     render() {
         return (
             <div className={Styles.navMenu}>
-                <Button label="Home" Component={Home} />
+                <Button label="Home" />
                 <Button label="General info" />
-                <Button label="Testttt" />
+                <Button label="Test Socket" />
             </div>
         )
     }

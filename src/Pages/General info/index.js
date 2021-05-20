@@ -4,7 +4,7 @@ export default class GeneralInfo extends Component {
     render() {
         return (
             <div>
-                ssss
+                aaaa
             </div>
         )
     }
