@@ -10,7 +10,8 @@ export default class TestSocket extends Component{
 
         //state for test timer
         this.state = {
-            timer: 0
+            timer: 0,
+            storage: {}
         }
     }
 
@@ -27,6 +28,11 @@ export default class TestSocket extends Component{
             console.log(timer)
             this.setState({timer: timer})
         })
+
+        socket.on('testData', (storage) =>{
+            console.log("storage: ", storage)
+            this.setState({storage: storage})
+        })
         
     }
 
@@ -38,6 +44,8 @@ export default class TestSocket extends Component{
         return(
             <div>
                 Server uptime: {this.state.timer}
+                <br />
+                From robot message: {this.state.storage.test2}
             </div>
         )
     }
