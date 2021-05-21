@@ -1,0 +1,30 @@
+.led{
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    position: absolute;
+    margin: -18px 0 0 -18px;
+    top: 50%;
+    left: 50%;
+}
+
+.ledBorder{
+    position: absolute;
+    height: 44px;
+    width: 44px;
+    margin: -22px 0 0 -22px;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    background-color: black;
+}
+
+.conture{
+    margin: 20px;
+    position: relative;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: #363636;
+    box-shadow: 7px 5px 5px black;
+}

@@ -13,6 +13,7 @@ export default class Navigation extends Component {
                 <Button label="Home" />
                 <Button label="General info" />
                 <Button label="Test Socket" />
+                <Button label ="UI example" />
             </div>
         )
     }
