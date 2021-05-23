@@ -40,12 +40,15 @@ export default class TestSocket extends Component{
         
     }
 
-    render(){  
+    render(){
+
+        var myJSON = JSON.stringify(this.state.storage); //Create string from object
+
         return(
             <div>
                 Server uptime: {this.state.timer}
                 <br />
-                From robot message: {this.state.storage.test2}
+                From robot message: {myJSON}
             </div>
         )
     }
