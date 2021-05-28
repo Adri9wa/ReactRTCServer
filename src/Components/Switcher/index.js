@@ -22,6 +22,10 @@ export default class Switcher extends Component{
                 ledColor = "#F12F2F";
                 break;
             }
+            default: {
+                ledColor = "#6B6B6B";
+                break;
+            }
         }
         return(
             <div className={Styles.conture}>

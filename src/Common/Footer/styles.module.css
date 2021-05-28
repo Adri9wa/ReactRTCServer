@@ -2,6 +2,7 @@
     background-color: #535A6E;
     border-top: 3px solid #000;
     height: 150px;
+    width: 100%;
     margin-top: auto;
     position: relative;
     display: flex;

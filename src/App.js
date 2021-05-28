@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from './Common/Layout/index'
-import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 function App() {
 	return (

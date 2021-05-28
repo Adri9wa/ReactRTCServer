@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { HeaderColor } from '../../Constants/Colors'
 import Styles from './styles.module.css';
 
 /**
