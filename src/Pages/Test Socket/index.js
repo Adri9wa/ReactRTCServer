@@ -62,9 +62,11 @@ export default class TestSocket extends Component{
 
     }
     
-
-    render(){  
         
+    render(){
+
+        var myJSON = JSON.stringify(this.state.storage); //Create string from object
+
         return(
             <div>
                 Server uptime: {this.state.timer}
@@ -74,6 +76,7 @@ export default class TestSocket extends Component{
                 <div style={{boxShadow: "10px 5px 12px black", borderRadius: "50%", width: "120px", height: "120px", margin:"100px", transform: "rotate(0deg)"}}>
                 <Joystick size={120} baseColor="#363636" stickColor="#5071a1" throttle={20} move={this.handleMove} stop={this.handleStop}></Joystick>
                 </div>
+                From robot message: {myJSON}
             </div>
         )
     }
