@@ -4,7 +4,7 @@
     height: 120px;
     border-radius: 50%;
     position: relative;
-    animation:spin 1.5s linear infinite;
+    animation:spin 1.9s linear infinite;
     margin: 20px;
     box-shadow: 0px 0px 15px black;
 }
@@ -25,7 +25,7 @@
 }
 
 .conture{
-    animation:spinBack 1.5s linear infinite;
+    animation:spinBack 1.9s linear infinite;
     position: absolute;
     top: 50%;
     left: 50%;

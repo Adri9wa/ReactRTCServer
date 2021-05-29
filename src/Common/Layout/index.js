@@ -6,7 +6,7 @@ import Styles from './styles.module.css'
 import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom'
 import Home from '../../Pages/Home'
 import GeneralInfo from '../../Pages/General info'
-import TestSocket from '../../Pages/Test Socket'
+import ControlRoom from '../../Pages/Control Room'
 import UIexample from '../../Pages/UI example'
 
 /**
@@ -24,7 +24,7 @@ export default class Layout extends Component {
                         <Navigation />
                             <Route exact path="/Home" component={Home} />
                             <Route exact path="/General info" component={GeneralInfo} />
-                            <Route exact path="/Test Socket" component={TestSocket} />
+                            <Route exact path="/Control Room" component={ControlRoom} />
                             <Route exact path="/UI example" component={UIexample} />
                     </div>
                     <Footer />

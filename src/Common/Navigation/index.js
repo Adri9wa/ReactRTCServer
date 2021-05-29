@@ -11,7 +11,7 @@ export default class Navigation extends Component {
             <div className={Styles.navMenu}>
                 <Button label="Home" />
                 <Button label="General info" />
-                <Button label="Test Socket" />
+                <Button label="Control Room" />
                 <Button label ="UI example" />
             </div>
         )

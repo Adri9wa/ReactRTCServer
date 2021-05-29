@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import * as io from 'socket.io-client'
 import { Joystick } from 'react-joystick-component'
+import StatusBar from '../../Components/Status Bar'
+import Styles from './styles.module.css'
 
 const socket = io.connect('http://localhost:5000') //connect socket to server
 
@@ -12,7 +14,7 @@ export default class TestSocket extends Component{
         //state for test timer
         this.state = {
             timer: 0,
-            storage: {}
+            storage: {powerL: 0, powerR: 0}
         }
     }
 
@@ -69,12 +71,17 @@ export default class TestSocket extends Component{
 
         return(
             <div>
-                Server uptime: {this.state.timer}
+                    Server uptime: {this.state.timer}
                 <br />
-                From robot message: {this.state.storage.test2}
+                    From robot message: {this.state.storage.test2}
                 <br />
-                <div style={{boxShadow: "10px 5px 12px black", borderRadius: "50%", width: "120px", height: "120px", margin:"100px", transform: "rotate(0deg)"}}>
-                <Joystick size={120} baseColor="#363636" stickColor="#5071a1" throttle={20} move={this.handleMove} stop={this.handleStop}></Joystick>
+                
+                <div className={Styles.engines}>
+                    <StatusBar percentage = {this.state.storage.powerL}/>
+                    <div style={{boxShadow: "10px 5px 12px black", borderRadius: "50%", width: "120px", height: "120px", margin:"20px", transform: "rotate(0deg)"}}>
+                    <Joystick size={120} baseColor="#363636" stickColor="#5071a1" throttle={20} move={this.handleMove} stop={this.handleStop}></Joystick>
+                </div>
+                    <StatusBar percentage = {this.state.storage.powerR}/>
                 </div>
                 From robot message: {myJSON}
             </div>
