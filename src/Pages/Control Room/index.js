@@ -3,8 +3,9 @@ import * as io from 'socket.io-client'
 import { Joystick } from 'react-joystick-component'
 import StatusBar from '../../Components/Status Bar'
 import Styles from './styles.module.css'
+import DataForm from '../../Components/DataForm'
 
-const socket = io.connect('http://localhost:5000') //connect socket to server
+const socket = io.connect('http://localhost:8000') //connect socket to server
 
 export default class TestSocket extends Component{
 
@@ -14,7 +15,7 @@ export default class TestSocket extends Component{
         //state for test timer
         this.state = {
             timer: 0,
-            storage: {powerL: 0, powerR: 0}
+            storage: {pl: 0, pr: 0}
         }
     }
 
@@ -28,12 +29,10 @@ export default class TestSocket extends Component{
           });
 
         socket.on('sendTimer', (timer) =>{
-            console.log(timer)
             this.setState({timer: timer})
         })
 
         socket.on('testData', (storage) =>{
-            console.log("storage: ", storage)
             this.setState({storage: storage})
         })
         
@@ -44,10 +43,8 @@ export default class TestSocket extends Component{
     }
 
     handleMove = (test) =>{
-        console.log("move: ", test)
         var x = test.x*1.666;
         var y = test.y*1.666;
-        console.log(x, y)
         var powerL = y, powerR = y;
         powerL += x;
         powerR -= x;
@@ -55,7 +52,7 @@ export default class TestSocket extends Component{
         if(powerR >= 100) powerR = 100;
         if(powerL <= -100) powerL = -100;
         if(powerR <= -100) powerR = -100;
-        socket.emit('MoveJoystick', Math.round(powerL), Math.round(powerR))
+        socket.emit('MoveJoystick', Math.round(powerR), Math.round(powerL))
     }
 
     handleStop = () =>{
@@ -77,13 +74,13 @@ export default class TestSocket extends Component{
                 <br />
                 
                 <div className={Styles.engines}>
-                    <StatusBar percentage = {this.state.storage.powerL}/>
+                    <StatusBar percentage = {this.state.storage.pl}/>
                     <div style={{boxShadow: "10px 5px 12px black", borderRadius: "50%", width: "120px", height: "120px", margin:"20px", transform: "rotate(0deg)"}}>
                     <Joystick size={120} baseColor="#363636" stickColor="#5071a1" throttle={20} move={this.handleMove} stop={this.handleStop}></Joystick>
                 </div>
-                    <StatusBar percentage = {this.state.storage.powerR}/>
+                    <StatusBar percentage = {this.state.storage.pr}/>
                 </div>
-                From robot message: {myJSON}
+                <DataForm paramName="Msg from RTC" paramDesc={myJSON} />
             </div>
         )
     }
