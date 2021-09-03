@@ -1,21 +1,20 @@
 {
   "files": {
-    "main.css": "/ReactRTCServer/static/css/main.634c9e30.chunk.css",
-    "main.js": "/ReactRTCServer/static/js/main.2423a7e6.chunk.js",
-    "main.js.map": "/ReactRTCServer/static/js/main.2423a7e6.chunk.js.map",
+    "main.css": "/ReactRTCServer/static/css/main.8b36db14.chunk.css",
+    "main.js": "/ReactRTCServer/static/js/main.dc49fdea.chunk.js",
+    "main.js.map": "/ReactRTCServer/static/js/main.dc49fdea.chunk.js.map",
     "runtime-main.js": "/ReactRTCServer/static/js/runtime-main.956c2f61.js",
     "runtime-main.js.map": "/ReactRTCServer/static/js/runtime-main.956c2f61.js.map",
-    "static/js/2.1b1159e7.chunk.js": "/ReactRTCServer/static/js/2.1b1159e7.chunk.js",
-    "static/js/2.1b1159e7.chunk.js.map": "/ReactRTCServer/static/js/2.1b1159e7.chunk.js.map",
+    "static/js/2.e78abaca.chunk.js": "/ReactRTCServer/static/js/2.e78abaca.chunk.js",
+    "static/js/2.e78abaca.chunk.js.map": "/ReactRTCServer/static/js/2.e78abaca.chunk.js.map",
     "index.html": "/ReactRTCServer/index.html",
-    "static/css/main.634c9e30.chunk.css.map": "/ReactRTCServer/static/css/main.634c9e30.chunk.css.map",
-    "static/js/2.1b1159e7.chunk.js.LICENSE.txt": "/ReactRTCServer/static/js/2.1b1159e7.chunk.js.LICENSE.txt",
-    "static/media/cat.638def9a.jpg": "/ReactRTCServer/static/media/cat.638def9a.jpg"
+    "static/css/main.8b36db14.chunk.css.map": "/ReactRTCServer/static/css/main.8b36db14.chunk.css.map",
+    "static/js/2.e78abaca.chunk.js.LICENSE.txt": "/ReactRTCServer/static/js/2.e78abaca.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.956c2f61.js",
-    "static/js/2.1b1159e7.chunk.js",
-    "static/css/main.634c9e30.chunk.css",
-    "static/js/main.2423a7e6.chunk.js"
+    "static/js/2.e78abaca.chunk.js",
+    "static/css/main.8b36db14.chunk.css",
+    "static/js/main.dc49fdea.chunk.js"
   ]
 }
