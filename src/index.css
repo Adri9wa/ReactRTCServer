@@ -7,6 +7,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(192.04deg, #181818 19.27%, rgba(0, 0, 0, 0.85) 65.1%, rgba(40, 40, 40, 0.7) 100%); /* Main background theme */
 }
 
 code {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Header from '../Header'
-import Navigation from '../Navigation'
+import Navigation from '../NavigationOld'
 import Footer from '../Footer'
 import Styles from './styles.module.css'
 import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom'

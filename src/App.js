@@ -9,7 +9,7 @@ import { ConnectedRouter } from 'connected-react-router';
 import store, { persistor } from './store/store';
 import history from './store/history';
 import Routes from './routes/Main';
-// import { Navigation } from 'UI';
+import { Navigation } from 'Common';
 
 //own
 
@@ -20,9 +20,9 @@ export default class App extends Component {
                 <PersistGate loading={ null } persistor={ persistor }>
 					<ConnectedRouter history={ history }>
 						<div>
-                            {/* <Navigation> */}
+                            <Navigation>
 						    	<Routes />
-                            {/* </Navigation> */}
+                            </Navigation>
 						</div>
 					</ConnectedRouter>
                 </PersistGate>

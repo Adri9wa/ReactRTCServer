@@ -1,0 +1,9 @@
+.menuButton {
+    font-weight: bold;
+    background: rgb(30, 71, 40);
+    background: linear-gradient(17deg, rgb(42, 100, 56) 0%, rgba(6,9,7,1) 17%, rgba(0,0,0,1) 77%, rgba(29,99,91,1) 100%);
+    margin: 0 1em 2em 1em;
+    border-radius: 0.4em;
+    border: 0.1em solid darkgray;
+    box-shadow: 0.2em 0.4em 0.8em rgb(0, 88, 129), -0.2em -0.4em 0.8em rgb(0, 129, 123);
+}

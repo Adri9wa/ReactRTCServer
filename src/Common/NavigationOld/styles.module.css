@@ -1,0 +1,16 @@
+.navMenu{
+    position: absolute;
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin: -3px 0 50px 0px;
+    padding: 40px 80px 40px 20px;
+    flex-direction: column;
+    width: 13%;
+    background-color: #5071A1;
+    box-shadow: 9px 9px 30px #000;
+    border: 3px solid black;
+    border-left: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
