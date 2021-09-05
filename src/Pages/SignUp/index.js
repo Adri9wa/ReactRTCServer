@@ -1,7 +1,11 @@
+// vendor
 import React from 'react';
-
 import {
-    Box,
+    Box
+} from '@material-ui/core';
+
+// proj
+import {
     TitleText,
     Text,
     StatusBar,
@@ -9,12 +13,13 @@ import {
     Switcher,
 } from 'rtc-ui-library';
 
+import Styles from './styles.module.css';
 
 export default class SignUp extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className={ Styles.mainCont }>
                 <Box>
                     <TitleText styles={{backgroundColor: 'red'}}>My title</TitleText>
                 </Box>
