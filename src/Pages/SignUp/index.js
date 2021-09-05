@@ -8,8 +8,15 @@ import {
 
 // proj
 import {
-    setLogin,
     selectLogin,
+    selectPassword,
+    selectNickname,
+
+    setLogin,
+    setPassword,
+    setNickname,
+
+    registerUser,
 } from './redux/duck';
 import {
     TitleText,
@@ -22,10 +29,15 @@ import Styles from './styles.module.css';
 
 const mapStateToProps = state => ({
     login: selectLogin(state),
+    password: selectPassword(state),
+    nickname: selectNickname(state),
 });
 
 const mapDispatchToProps = {
+    setPassword,
+    setNickname,
     setLogin,
+    registerUser,
 };
 
 
@@ -34,8 +46,14 @@ class SignUp extends React.Component {
     render() {
         const {
             login,
+            password,
+            nickname,
 
             setLogin,
+            setPassword,
+            setNickname,
+
+            registerUser,
         } = this.props;
 
         return (
@@ -48,30 +66,30 @@ class SignUp extends React.Component {
                             <Input
                                 label="Login"
                                 value={login}
-                                onChange={console.log}
+                                onChange={e => setLogin(e.target.value)}
                             />
                         </Grid>
 
                         <Grid className={Styles.inputCont} item xs={6}>
-                            <Input label="Password"/>
+                            <Input
+                                label="Password"
+                                value={password}
+                                onChange={e => setPassword(e.target.value)}
+                            />
                         </Grid>
 
                         <Grid className={Styles.inputCont} item xs={6}>
-                            <Input label="First name"/>
-                        </Grid>
-
-                        <Grid className={Styles.inputCont} item xs={6}>
-                            <Input label="Last name"/>
-                        </Grid>
-
-                        <Grid className={Styles.inputCont} item xs={6}>
-                            <Input label="Nickname"/>
+                            <Input
+                                label="Nickname"
+                                value={nickname}
+                                onChange={e => setNickname(e.target.value)}
+                            />
                         </Grid>                        
                     </Grid>
                 </Box>
 
                 <div className={Styles.signUpBtnCont}>
-                    <Button>Sign up</Button>
+                    <Button onClick={() => registerUser()}>Sign up</Button>
                 </div>
                 <Text>You have to register yourself before you can access other pages.</Text>
                 <Text>After registration you will have access to your profile.</Text>

@@ -6,37 +6,36 @@ import _ from 'lodash';
 
 // own
 import {
+    REGISTER_USER,
 
+    selectLogin,
+    selectPassword,
+    selectNickname,
 } from './duck';
-// export function* fetchVehicleOrdersSaga() {
-//     while (true) {
-//         try {
-//             yield take(FETCH_VEHICLE_ORDERS);
 
-//             yield put(setFetchingVehicleOrders(true));
+export function* registerUserSaga() {
+    while (true) {
+        try {
+            yield take(REGISTER_USER);
 
-//             const vehicleId = yield select(selectExpandedVehicleId);
+            const login = yield select(selectLogin);
+            const password = yield select(selectPassword);
+            const nickname = yield select(selectNickname);
 
-//             const sort = yield select(selectVehicleOrdersSort);
-
-//             yield nprogress.start();
-
-//             const {orders, stats} = yield call(fetchAPI, 'GET', `orders/vehicle/${vehicleId}`, {page: sort.page});
-
-//             yield put(fetchVehicleOrdersSuccess({orders, stats}));
-//         } catch (error) {
-//             yield put(emitError(error));
-//         } finally {
-//             yield nprogress.done();
-//             yield put(setFetchingVehicleOrders(false));
-//         }
-//     }
-// }
-
+            const payload = {
+                login,
+                password,
+                nickname,
+            };
+            console.log("Registering!!!: ", payload);
+        } catch (error) {
+            console.log("Error while registering a new user: ", error);
+        }
+    }
+}
 
 export function* saga() {
     yield all([
-        // call(fetchVehiclesSaga),
-        // call(fetchVehicleOrdersSaga),
+        call(registerUserSaga),
     ]);
 }

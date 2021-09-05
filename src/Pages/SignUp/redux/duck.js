@@ -4,11 +4,15 @@ const prefix = `pages/${moduleName}`;
 
 export const SET_LOGIN = `${prefix}/SET_LOGIN`;
 export const SET_PASSWORD = `${prefix}/SET_PASSWORD`;
+export const SET_NICKNAME = `${prefix}/SET_NICKNAME`;
+
+export const REGISTER_USER = `${prefix}/REGISTER_USER`;
 
 /** Reducer **/
 const ReducerState = {
     login:    "",
     password: "",
+    nickname: "",
 };
 
 export default function reducer(state = ReducerState, action) {
@@ -25,6 +29,12 @@ export default function reducer(state = ReducerState, action) {
                 ...state,
                 password: payload,
             };
+        case SET_NICKNAME:
+            return {
+                ...state,
+                nickname: payload,
+            };
+
         default: return state;
     }
 }
@@ -32,6 +42,7 @@ export default function reducer(state = ReducerState, action) {
 /** Selectors **/
 export const selectLogin = (state) => state[moduleName].login;
 export const selectPassword = (state) => state[moduleName].password;
+export const selectNickname = (state) => state[moduleName].nickname;
 
 /** Action Creators **/
 export const setLogin = (value) => ({
@@ -41,4 +52,11 @@ export const setLogin = (value) => ({
 export const setPassword = (value) => ({
     type: SET_PASSWORD,
     payload: value,
+});
+export const setNickname = (value) => ({
+    type: SET_NICKNAME,
+    payload: value,
+});
+export const registerUser = () => ({
+    type: REGISTER_USER,
 });
