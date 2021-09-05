@@ -8,6 +8,7 @@ import Home from '../../Pages/Home'
 import GeneralInfo from '../../Pages/General info'
 import ControlRoom from '../../Pages/Control Room'
 import UIexample from '../../Pages/UI example'
+import SignUp from '../../Pages/SignUp'
 
 /**
  * RTC web page layout.
@@ -26,6 +27,7 @@ export default class Layout extends Component {
                             <Route exact path="/General info" component={GeneralInfo} />
                             <Route exact path="/Control Room" component={ControlRoom} />
                             <Route exact path="/UI example" component={UIexample} />
+                            <Route exact path="/SignUp" component={SignUp} />
                     </div>
                     <Footer />
                 </div>

@@ -13,6 +13,7 @@ export default class Navigation extends Component {
                 <Button label="General info" />
                 <Button label="Control Room" />
                 <Button label ="UI example" />
+                <Button label ="SignUp" />
             </div>
         )
     }
