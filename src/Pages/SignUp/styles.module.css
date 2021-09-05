@@ -1,5 +1,18 @@
 .mainCont {
-    width: 60%;
+    width: 50%;
     height: 150vh;
+    padding: 0.2em 1em 0.2em 1em;
     background: linear-gradient(192.04deg, #181818 19.27%, rgba(0, 0, 0, 0.85) 65.1%, rgba(40, 40, 40, 0.7) 100%);
+}
+
+.title, .signUpBtnCont, .inputCont {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registrationForm {
+    width: 100%;
+    min-height: 60vh;
 }
