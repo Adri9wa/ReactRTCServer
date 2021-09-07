@@ -91,6 +91,22 @@ class SignUp extends React.Component {
                 <div className={Styles.signUpBtnCont}>
                     <Button onClick={() => registerUser()}>Sign up</Button>
                 </div>
+                <div className={Styles.signUpBtnCont}>
+                    <Button onClick={async () => {
+                        const response = await fetch('http://127.0.0.1:8000/users', {
+                            method: 'POST',
+                            // headers: {
+                            //     'content-type':                   'application/json',
+                            //     'Cache-Control':                  'no-cache',
+                            //     'Access-Control-Request-Headers': '*',
+                            //     'Access-Control-Allow-Origin':    '*',
+                            //     'mode':                           'no-cors',
+                            // },
+                            body: JSON.stringify({}),
+                        });
+                        console.log('response: ', response);
+                    }}>Hardcoded sign up</Button>
+                </div>
                 <Text>You have to register yourself before you can access other pages.</Text>
                 <Text>After registration you will have access to your profile.</Text>
             </div>
