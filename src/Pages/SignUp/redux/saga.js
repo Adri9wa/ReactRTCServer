@@ -3,6 +3,7 @@ import { call, all, take, select } from 'redux-saga/effects';
 // import _ from 'lodash';
 
 //proj
+import { fetchAPI } from 'utils';
 
 // own
 import {
@@ -27,24 +28,10 @@ export function* registerUserSaga() {
                 password,
                 nickname,
             };
+
             try {
-                console.log("JSON.stringify(payload): ", JSON.stringify(payload));
-                // TODO create auto handling method for requests
-                const response = yield call(fetch, 'http://127.0.0.1:8000/users', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(payload),
-                });
-
-                const getJson = async (rawResponse) => {
-                    return await rawResponse.json()
-                }
-
-                const jsonResult = yield call(getJson, response);
-
-                console.log("Response: ", jsonResult);
+                const response = yield call(fetchAPI, 'POST', '/users', null, payload);
+                console.log("response: ", response);
             } catch (error) {
                 console.error(error);
             }
