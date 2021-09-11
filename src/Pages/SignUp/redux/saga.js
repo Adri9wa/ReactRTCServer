@@ -1,6 +1,6 @@
 // vendor
-import { call, put, all, take, select } from 'redux-saga/effects';
-import _ from 'lodash';
+import { call, all, take, select } from 'redux-saga/effects';
+// import _ from 'lodash';
 
 //proj
 

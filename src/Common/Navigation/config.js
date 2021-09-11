@@ -4,6 +4,7 @@ import book from "routes/book";
 /**
  * Configure each navigation button
  */
+// eslint-disable-next-line import/no-anonymous-default-export
 export default () => {
 
     return [
