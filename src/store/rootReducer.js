@@ -9,6 +9,7 @@ import _ from 'lodash';
 // proj
 
 import SignUpReducer, {moduleName as signUpModule} from 'Pages/SignUp/redux/duck';
+import LogInReducer, {moduleName as logInModule} from 'Pages/LogIn/redux/duck';
 
 // own
 import history from './history';
@@ -32,6 +33,7 @@ const persistedState = {
 /** There should be placed object that have storage that will be dropped after reload */
 const appState = {
     [ signUpModule ]:   SignUpReducer,
+    [ logInModule ]:    LogInReducer,
 };
 
 const appReducer = combineReducers({ ...persistedState, ...appState });

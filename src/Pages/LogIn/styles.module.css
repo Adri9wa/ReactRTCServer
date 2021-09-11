@@ -1,0 +1,16 @@
+.mainCont {
+    height: 150vh;
+    padding: 0.2em 1em 0.2em 1em;
+}
+
+.title, .signUpBtnCont, .inputCont {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registrationForm {
+    width: 100%;
+    min-height: 60vh;
+}

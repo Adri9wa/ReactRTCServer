@@ -6,6 +6,7 @@ import { Switch, Route, Redirect } from 'react-router';
 import {
     Home,
     SignUp,
+    LogIn
 } from 'Pages';
 
 import book from './book';
@@ -26,6 +27,11 @@ export default class Public extends Component {
                     exact
                     render={ props => <SignUp { ...props } /> }
                     path={ book.signUp }
+                />
+                <Route
+                    exact
+                    render={ props => <LogIn { ...props } /> }
+                    path={ book.logIn }
                 />
 
                 <Redirect to={ book.home } /> {/*Redirect to the default page*/}

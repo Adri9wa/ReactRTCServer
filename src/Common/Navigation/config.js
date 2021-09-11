@@ -16,5 +16,9 @@ export default () => {
             title: "SIGN UP",
             path: book.signUp,
         },
+        {
+            title: "LOG IN",
+            path: book.logIn,
+        },
     ];
 }
