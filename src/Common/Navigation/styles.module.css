@@ -30,6 +30,14 @@
     align-items: center;
 }
 
+.logOutCont {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    padding: 0.2em;
+}
+
 .sideMenuContent {
     width: 100%;
     margin-top: 2em;

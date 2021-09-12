@@ -7,7 +7,7 @@ import { LOCATION_CHANGE } from 'connected-react-router';
 import _ from 'lodash';
 
 // proj
-import CommonReducer, {moduleName as commonModule} from 'Common/redux/duck';
+import CommonReducer, {mainModuleName as commonModule} from 'Common/redux/duck';
 import SignUpReducer, {moduleName as signUpModule} from 'Pages/SignUp/redux/duck';
 import LogInReducer, {moduleName as logInModule} from 'Pages/LogIn/redux/duck';
 
@@ -21,18 +21,18 @@ export const persistConfig = {
     key:       'persistedStore',
     storage:   persistStorage,
     whitelist: [
-        signUpModule,
+        commonModule,
     ],
 };
 
 /** Persisted state will no change after reloading of the page */
 const persistedState = {
-    router:                        connectRouter(history),
+    'router':         connectRouter(history),
+    [ commonModule ]: CommonReducer,
 };
 
 /** There should be placed object that have storage that will be dropped after reload */
 const appState = {
-    [ commonModule ]:   CommonReducer,
     [ signUpModule ]:   SignUpReducer,
     [ logInModule ]:    LogInReducer,
 };

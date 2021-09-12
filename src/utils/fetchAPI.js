@@ -7,6 +7,8 @@ import _ from 'lodash';
 import qs from 'qs';
 
 // proj
+import store from 'store/store';
+import { selectAuthToken } from 'Common/redux/duck';
 
 export const API = 'http://127.0.0.1:8000';
 
@@ -43,11 +45,15 @@ export async function fetchAPI(method, endpoint = '', query = {}, body = {}, opt
         arrayFormat: 'repeat',
     });
 
+    const currentState = store.getState();
+    const token = selectAuthToken(currentState);
+
+    console.log("token: ", token, currentState);
+
     const request = {
         method,
         headers: {
             'content-type':                   'application/json',
-            // 'Cache-Control':                  'no-cache',
             'Access-Control-Request-Headers': '*',
         },
     };

@@ -1,3 +1,6 @@
+//proj
+import { mainModuleName } from 'Common/redux/duck';
+
 /** Constants **/
 export const moduleName = 'user';
 const prefix = `common/${moduleName}`;
@@ -5,12 +8,13 @@ const prefix = `common/${moduleName}`;
 export const SET_USER = `${prefix}/SET_USER`;
 export const SET_USER_FETCHING = `${prefix}/SET_USER_FETCHING`;
 export const SET_AUTH_TOKEN = `${prefix}/SET_AUTH_TOKEN`;
+export const LOG_OUT = `${prefix}/LOG_OUT`;
 
 /** Reducer **/
 const ReducerState = {
     user:         {},
     userFetching: false,
-    authToken:    "",
+    authToken:    undefined,
 };
 
 export default function reducer(state = ReducerState, action) {
@@ -31,6 +35,8 @@ export default function reducer(state = ReducerState, action) {
                 ...state,
                 authToken: payload,
             };
+        case LOG_OUT:
+            return ReducerState;
 
 
         default: return state;
@@ -38,9 +44,9 @@ export default function reducer(state = ReducerState, action) {
 }
 
 /** Selectors **/
-export const selectUser = (state) => state[moduleName].user;
-export const selectUserFetching = (state) => state[moduleName].userFetching;
-export const selectAuthToken = (state) => state[moduleName].authToken;
+export const selectUser = (state) => state[mainModuleName][moduleName].user;
+export const selectUserFetching = (state) => state[mainModuleName][moduleName].userFetching;
+export const selectAuthToken = (state) => state[mainModuleName][moduleName].authToken;
 
 /** Action Creators **/
 export const setUser = (value) => ({
@@ -58,5 +64,10 @@ export const setUserFetching = (value) => ({
  */
 export const setAuthToken = (value) => ({
     type:    SET_AUTH_TOKEN,
+    payload: value,
+});
+
+export const logOut = (value) => ({
+    type:    LOG_OUT,
     payload: value,
 });

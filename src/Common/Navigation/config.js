@@ -1,3 +1,5 @@
+// vendor
+
 //proj
 import book from "routes/book";
 
@@ -5,7 +7,7 @@ import book from "routes/book";
  * Configure each navigation button
  */
 // eslint-disable-next-line import/no-anonymous-default-export
-export default () => {
+function configGenerator({token}) {
 
     return [
         {
@@ -15,10 +17,12 @@ export default () => {
         {
             title: "SIGN UP",
             path: book.signUp,
+            visible: token? false: true,
         },
         {
             title: "LOG IN",
             path: book.logIn,
+            visible: token? false: true,
         },
         {
             title: "CONTROL ROOM",
@@ -26,3 +30,5 @@ export default () => {
         },
     ];
 }
+
+export default configGenerator;
