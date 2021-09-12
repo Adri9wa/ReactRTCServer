@@ -4,7 +4,7 @@ import Styles from './styles.module.css'
 export default class StatusBar extends Component{
     render(){
         const {percentage} = this.props;
-        var outlineColor, labelColor;
+        var outlineColor;
         var col = 110-percentage;
         outlineColor = `conic-gradient(from 135deg at 50% 50%, #000000 -19.06deg, hsl(${col}, 60%, 50%) 326.84deg, #000000 340.94deg, hsl(${col}, 50%, 50%) 686.84deg)`
         var dynamicColor = `hsl(${col}, 60%, 50%)`
