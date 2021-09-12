@@ -6,7 +6,7 @@ import Styles from './styles.module.css'
 import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom'
 import Home from '../../Pages/Home'
 import GeneralInfo from '../../Pages/General info'
-import ControlRoom from '../../Pages/Control Room'
+import ControlRoom from 'Pages/ControlRoom'
 import UIexample from '../../Pages/UI example'
 import SignUp from '../../Pages/SignUp'
 

@@ -20,5 +20,9 @@ export default () => {
             title: "LOG IN",
             path: book.logIn,
         },
+        {
+            title: "CONTROL ROOM",
+            path: book.controlRoom,
+        },
     ];
 }

@@ -1,0 +1,1 @@
+# This directory is used to store common redux state(those values can be used by any part of a program)

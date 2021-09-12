@@ -7,7 +7,7 @@ import DataForm from '../../Components/DataForm'
 
 const socket = io.connect('http://localhost:8000') //connect socket to server
 
-export default class TestSocket extends Component{
+export default class ControlRoom extends Component{
 
     constructor(props){
         super(props);
@@ -60,7 +60,6 @@ export default class TestSocket extends Component{
         socket.emit('MoveJoystick', 0, 0)
 
     }
-    
         
     render(){
 
