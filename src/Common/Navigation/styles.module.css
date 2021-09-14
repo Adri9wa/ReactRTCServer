@@ -1,81 +1,83 @@
 .mainCont {
-    margin: 0;
+  margin: 0;
 }
 
 .logo {
-    height: 5vh;
-    pointer-events: none;
+  height: 5vh;
+  pointer-events: none;
 }
 
 .navigationAndHeaderPanel {
-    position: fixed;
-    width: 100%;
-    z-index: 6666;
+  position: fixed;
+  width: 100%;
+  z-index: 6666;
 }
 
 .header {
-    /* background-color: #304d4a; */
-    background: #191919;
-    min-height: 10vh;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-size: calc(10px + 2vmin);
-    color: rgb(193, 244, 255);
-    box-shadow: 0 0.6em 0.8em rgb(255, 255, 255);
+  /* background-color: #304d4a; */
+  background: #191919;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: rgb(193, 244, 255);
+  box-shadow: 0 0.6em 0.8em rgb(255, 255, 255);
 }
 
 .title {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .logOutCont {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    width: 100%;
-    padding: 0.2em;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  padding: 0.2em;
 }
 
 .sideMenuContent {
-    width: 100%;
-    margin-top: 2em;
+  width: 100%;
+  margin-top: 2em;
 }
 
 .sideMenu {
-    background: rgb(0, 0, 0);
-    display: flex;
-    position: absolute;
-    overflow: hidden;
-    width: 100%;
-    height: 1em;
-    z-index: 1000;
-    transition: height 0.6s ease-out 0.5s, width 0.6s ease-out 1s, box-shadow 1s ease-in-out 0.8s;
+  background: rgb(17, 27, 46);
+  display: flex;
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 1em;
+  z-index: 1000;
+  transition: height 0.6s ease-out 0.5s, width 0.6s ease-out 1s,
+    box-shadow 1s ease-in-out 0.8s;
 }
 
 .sideMenu:hover {
-    height: 100vh;
-    width: 40vw;
-    box-shadow: 0 5em 5em rgb(0, 0, 0);
-    transition: width 0.2s ease-in, height 0.4s ease-in-out 0.2s, box-shadow 0.2s ease-in-out 0.2s;
+  height: 100vh;
+  width: 40vw;
+  box-shadow: 0 5em 5em rgb(0, 0, 0);
+  transition: width 0.2s ease-in, height 0.4s ease-in-out 0.2s,
+    box-shadow 0.2s ease-in-out 0.2s;
 }
 
 .children {
-    padding-top: 16vh;
+  padding-top: 16vh;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    .logo {
-        animation: logo-spin infinite 20s linear;
-    }
+  .logo {
+    animation: logo-spin infinite 20s linear;
+  }
 }
 
 @keyframes logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

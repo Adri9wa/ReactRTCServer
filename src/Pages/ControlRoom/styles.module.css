@@ -1,4 +1,25 @@
-.engines{
-    display: flex;
-    margin: 50px;
+.engines {
+  display: flex;
+  margin: 50px;
+}
+
+.controlRoomWrap {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.column {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  flex-direction: row;
+}
+
+p {
+  color: green;
+}
+
+h1 {
+  color: #28c4c4;
 }
