@@ -42,6 +42,16 @@ export default class ControlRoom extends Component{
         
     }
 
+    emitMessageForRobot(powerL, powerR) {
+        socket.emit('MoveJoystick', {
+            deviceCode: "z8bf0qhB",
+            cmd: "TRANSFER",
+            transferToDevice: "xstWsRSC",
+            powerR,
+            powerL
+        })
+    }
+
     handleMove = (test) =>{
         var x = test.x*1.666;
         var y = test.y*1.666;
@@ -52,14 +62,32 @@ export default class ControlRoom extends Component{
         if(powerR >= 100) powerR = 100;
         if(powerL <= -100) powerL = -100;
         if(powerR <= -100) powerR = -100;
-        socket.emit('MoveJoystick', Math.round(powerR), Math.round(powerL))
+        this.emitMessageForRobot(Math.round(powerL), Math.round(powerR));
     }
 
     handleStop = () =>{
         console.log("stopped")
-        socket.emit('MoveJoystick', 0, 0)
-
+        this.emitMessageForRobot(0, 0);
     }
+
+    // handleMove = (test) =>{
+    //     var x = test.x*1.666;
+    //     var y = test.y*1.666;
+    //     var powerL = y, powerR = y;
+    //     powerL += x;
+    //     powerR -= x;
+    //     if(powerL >= 100) powerL = 100;
+    //     if(powerR >= 100) powerR = 100;
+    //     if(powerL <= -100) powerL = -100;
+    //     if(powerR <= -100) powerR = -100;
+    //     socket.emit('MoveJoystick', Math.round(powerR), Math.round(powerL))
+    // }
+
+    // handleStop = () =>{
+    //     console.log("stopped")
+    //     socket.emit('MoveJoystick', 0, 0)
+
+    // }
         
     render(){
 
