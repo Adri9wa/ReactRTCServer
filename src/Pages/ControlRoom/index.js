@@ -47,8 +47,11 @@ export default class ControlRoom extends Component{
             deviceCode: "z8bf0qhB",
             cmd: "TRANSFER",
             transferToDevice: "xstWsRSC",
-            powerR,
-            powerL
+            variables: {
+                deviceCode: "xstWsRSC",
+                powerR,
+                powerL
+            },
         })
     }
 
