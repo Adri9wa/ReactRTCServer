@@ -63,6 +63,10 @@
 
 .children {
     padding-top: 16vh;
+    padding: 16vh 2em 0 2em;
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {

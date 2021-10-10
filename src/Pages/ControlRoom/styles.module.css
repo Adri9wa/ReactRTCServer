@@ -1,4 +1,14 @@
+.mainCont {
+    width: 50vw;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+}
+
 .engines{
     display: flex;
-    margin: 50px;
+    padding-top: 2em;
+    justify-content: space-between;
 }

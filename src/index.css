@@ -2,12 +2,16 @@ body {
   background-color: #8390A4;
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(192.04deg, #181818 19.27%, rgba(0, 0, 0, 0.85) 65.1%, rgba(40, 40, 40, 0.7) 100%); /* Main background theme */
+  background-color: #181818;
+  /* Main background theme */
+  /* background: linear-gradient(192.04deg, #181818 19.27%, rgba(0, 0, 0, 0.85) 65.1%, rgba(0, 0, 0, 1) 100%); */
+  color: rgb(193, 244, 255);
 }
 
 code {
