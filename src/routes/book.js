@@ -5,6 +5,7 @@ const book = Object.freeze({
     logIn: '/log_in',
     home: '/home',
     controlRoom: '/controlRoom',
+    sciFiBacklight: '/sciFiBacklight',
 });
 
 export default book;

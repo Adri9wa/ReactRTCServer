@@ -6,6 +6,7 @@ import { Switch, Route, Redirect } from 'react-router';
 import {
     Home,
     ControlRoom,
+    SciFiLightingControl,
 } from 'Pages';
 
 import book from './book';
@@ -26,6 +27,11 @@ export default class Public extends Component {
                     exact
                     component={ ControlRoom }
                     path={ book.controlRoom }
+                />
+                <Route
+                    exact
+                    component={ SciFiLightingControl }
+                    path={ book.sciFiBacklight }
                 />
 
                 <Redirect to={ book.home } /> {/*Redirect to the default page*/}

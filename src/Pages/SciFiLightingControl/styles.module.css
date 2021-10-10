@@ -1,0 +1,31 @@
+.mainCont {
+    width: 50vw;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+}
+
+.buttonsCont{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+}
+
+.labeledComponent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.label {
+    width: 60%;
+}
+
+.content {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}

@@ -29,6 +29,11 @@ function configGenerator({token}) {
             path: book.controlRoom,
             visible: token? true: false,
         },
+        {
+            title: "SCI FI BACKLIGHT",
+            path: book.sciFiBacklight,
+            visible: token? true: false,
+        },
     ];
 }
 
