@@ -7,6 +7,7 @@ import {
     Home,
     ControlRoom,
     SciFiLightingControl,
+    SmartPlugControl,
 } from 'Pages';
 
 import book from './book';
@@ -32,6 +33,11 @@ export default class Public extends Component {
                     exact
                     component={ SciFiLightingControl }
                     path={ book.sciFiBacklight }
+                />
+                <Route
+                    exact
+                    component={ SmartPlugControl }
+                    path={ book.smartPlug }
                 />
 
                 <Redirect to={ book.home } /> {/*Redirect to the default page*/}

@@ -6,6 +6,7 @@ const book = Object.freeze({
     home: '/home',
     controlRoom: '/controlRoom',
     sciFiBacklight: '/sciFiBacklight',
+    smartPlug: '/smartPlug',
 });
 
 export default book;

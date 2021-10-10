@@ -34,6 +34,11 @@ function configGenerator({token}) {
             path: book.sciFiBacklight,
             visible: token? true: false,
         },
+        {
+            title: "SMART PLUG",
+            path: book.smartPlug,
+            visible: token? true: false,
+        },
     ];
 }
 
