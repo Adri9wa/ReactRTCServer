@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Styles from './styles.module.css'
 import { TitleText, Text, Switcher } from 'rtc-ui-library';
 
+import { fetchAPI } from 'utils';
+
 export const COLORS = {
     success: '#28C438',
     error: '#F12F2F',
@@ -20,7 +22,24 @@ export default class SmartPlugControl extends Component{
     }
 
     handleOnOff = (newValue) => {
-        this.setState({onOff: newValue, selectedMode: undefined})
+        this.setState({onOff: newValue}, () => {
+            fetchAPI(
+                'PUT',
+                '/updater',
+                null, 
+                {
+            
+                    "deviceCode": "z8bf0qhB",
+                    "cmd": "TRANSFER",
+                    "transferToDevice": "HbJ7VX6m",
+                    "deviceState": {
+                        "variables": {
+                            "status": this.state.onOff,
+                        }
+                    }
+                }
+            )
+        });
     }
 
     renderLabeledComponent = (label, content) => {
