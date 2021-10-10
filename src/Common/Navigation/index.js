@@ -1,12 +1,13 @@
 //vendor
 import React from 'react';
 import _ from 'lodash';
-import logo from "./logo.svg";
-import { Button } from 'rtc-ui-library';
+import { TitleText } from 'rtc-ui-library';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 //proj
 
 //own
+import logo from "./logo.svg";
 import Styles from "./styles.module.css";
 import navigationConfiguration from './config';
 import NavigationButton from './components/NavigationButton';
@@ -45,7 +46,9 @@ class Navigation extends React.Component {
                         <img src={logo} className={Styles.logo} alt="logo" />
                         <div className={Styles.title}> RTC </div>
                         <div className={Styles.logOutCont}>
-                            <Button onClick={() => logOut()}>LOG OUT</Button>
+                            <TitleText className={Styles.logOutButton} onClick={() => logOut()}>
+                                <LogoutIcon />
+                            </TitleText>
                         </div>
                     </header>
                     <div className={Styles.sideMenu}>
