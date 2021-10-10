@@ -27,6 +27,7 @@ function configGenerator({token}) {
         {
             title: "CONTROL ROOM",
             path: book.controlRoom,
+            visible: token? true: false,
         },
     ];
 }

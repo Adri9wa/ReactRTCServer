@@ -1,0 +1,22 @@
+.link {
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+.menuButton {
+    /* font-weight: bold;
+    background: rgb(30, 71, 40);
+    background: linear-gradient(17deg, rgb(42, 100, 56) 0%, rgba(6,9,7,1) 17%, rgba(0,0,0,1) 77%, rgba(29,99,91,1) 100%);
+    margin: 0 1em 2em 1em;
+    border-radius: 0.4em;
+    border: 0.1em solid darkgray;
+    box-shadow: 0.2em 0.4em 0.8em rgb(0, 88, 129), -0.2em -0.4em 0.8em rgb(0, 129, 123); */
+
+    background: linear-gradient(180deg, #363636 0%, #191919 100%);
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 20px 100px 0px;
+    margin: 0.5em 0;
+    padding: 0.4em 0.4em;
+}

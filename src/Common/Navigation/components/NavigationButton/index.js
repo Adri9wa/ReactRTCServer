@@ -1,11 +1,12 @@
 //vendor
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { TitleText } from 'rtc-ui-library';
 
 //proj
 
 //own
-import "./styles.css";
+import Styles from './styles.module.css';
 
 /**
  * Central navigation file, contains controls and commonly used stuff.
@@ -25,9 +26,10 @@ export default class NavigationButton extends React.Component {
             <div>
                 <Link
                     to={path}
+                    className={Styles.link}
                 >
-                    <div className="menuButton">
-                        {label}
+                    <div className={Styles.menuButton}>
+                        <TitleText>{label}</TitleText>
                     </div>
                 </Link>
             </div>
