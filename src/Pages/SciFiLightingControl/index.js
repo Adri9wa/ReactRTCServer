@@ -1,7 +1,4 @@
 import React, { Component } from 'react'
-import * as io from 'socket.io-client'
-import { Joystick } from 'react-joystick-component'
-import StatusBar from '../../Components/Status Bar'
 import Styles from './styles.module.css'
 import { TitleText, Text, Button, Switcher } from 'rtc-ui-library';
 import AddIcon from '@mui/icons-material/Add';
@@ -15,7 +12,7 @@ export const COLORS = {
 };
 
 
-export default class ControlRoom extends Component{
+export default class SciFiLightingControl extends Component{
     constructor(props){
         super(props);
 
