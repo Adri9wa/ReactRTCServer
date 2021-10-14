@@ -4,6 +4,8 @@ import { TitleText, Text, Button, Switcher } from 'rtc-ui-library';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 
+import { fetchAPI } from 'utils';
+
 export const COLORS = {
     success: '#28C438',
     error: '#F12F2F',
@@ -23,16 +25,66 @@ export default class SciFiLightingControl extends Component{
     }
 
     handleOnOff = (newValue) => {
-        this.setState({onOff: newValue, selectedMode: undefined})
+        this.setState({onOff: newValue, selectedMode: newValue? "16738455": undefined}, () => {
+            fetchAPI(
+                'PUT',
+                '/updater',
+                null, 
+                {
+            
+                    "deviceCode": "z8bf0qhB",
+                    "cmd": "TRANSFER",
+                    "transferToDevice": "LuHfclCg",
+                    "deviceState": {
+                        "variables": {
+                            "code": this.state.onOff? "16738455": "16761405" //Just light or off
+                        }
+                    }
+                }
+            )
+        });
     }
 
     handleIncreaseDecrease = (type) => {
         console.log("Type: ", type);
+        fetchAPI(
+            'PUT',
+            '/updater',
+            null, 
+            {
+        
+                "deviceCode": "z8bf0qhB",
+                "cmd": "TRANSFER",
+                "transferToDevice": "LuHfclCg",
+                "deviceState": {
+                    "variables": {
+                        "code": (type === "INCREASE")? "16754775": "16769055" //Increase or decrease
+                    }
+                }
+            }
+        )
     }
 
     handleModeSelection = (key) => {
         console.log("key: ", key);
-        this.setState({selectedMode: key})
+        this.setState({selectedMode: key}, () => {
+            fetchAPI(
+                'PUT',
+                '/updater',
+                null, 
+                {
+            
+                    "deviceCode": "z8bf0qhB",
+                    "cmd": "TRANSFER",
+                    "transferToDevice": "LuHfclCg",
+                    "deviceState": {
+                        "variables": {
+                            "code": key
+                        }
+                    }
+                }
+            )
+        });
     }
 
     renderLabeledComponent = (label, content) => {
@@ -54,6 +106,8 @@ export default class SciFiLightingControl extends Component{
                     <Text>
                         Control your personal backlight system to make your life brighter!
                         Select desired mode and perform operations.
+                        <br />
+                        Some modes are disabled!
                     </Text>
                 </div>
 
