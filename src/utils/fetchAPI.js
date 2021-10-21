@@ -7,10 +7,11 @@ import _ from 'lodash';
 import qs from 'qs';
 
 // proj
-import store from 'store/store';
-import { selectAuthToken } from 'Common/redux/duck';
+// import store from 'store/store';
+// import { selectAuthToken } from 'Common/redux/duck';
 
-export const API = 'http://127.0.0.1:8000';
+export const API = process.env.REACT_APP_HOST_API;
+// export const API = 'http://127.0.0.1:8000';
 
 class ResponseError extends Error {
     constructor(response, status) {
@@ -26,11 +27,11 @@ class ResponseError extends Error {
 }
 
 /**
- * This function is used to make server requestl. It automatically handles all transformations and, set authorization token and get aut tiken
+ * This function is used to make requests to the server. It automatically handles all transformations and, set authorization token and get aut tiken
  * @param {*} method    - request method, one of: "POST", "PUT", "GET", etc.
  * @param {*} endpoint  - request endpoint, for example: '/users'
  * @param {*} [ query ] - query parameters in form of js object: {myParam: "text", queryFilter: "bla"}, null if no value
- * @param {*} [ body ]  - js object for some methods, null if no budy
+ * @param {*} [ body ]  - js object for some methods, null if no body
  * 
  * @param {*} [ options = {} ]        - additional options for request
  * @param {*} [ options.rawResponse ] - Do not transform received response into json and return as is
@@ -45,11 +46,6 @@ export async function fetchAPI(method, endpoint = '', query = {}, body = {}, opt
         arrayFormat: 'repeat',
     });
 
-    const currentState = store.getState();
-    const token = selectAuthToken(currentState);
-
-    console.log("token: ", token, currentState);
-
     const request = {
         method,
         headers: {
@@ -62,9 +58,8 @@ export async function fetchAPI(method, endpoint = '', query = {}, body = {}, opt
         request.body = JSON.stringify(body);
     }
 
-    console.log("API request: ", request);
-
-    const response = await fetch.apply(null, [ `${API}${endpoint}${queryString ? `?${queryString}` : ''}`, request, ...arguments ]);
+    const url = `${API}${endpoint}${queryString ? `?${queryString}` : ''}`;
+    const response = await fetch(url, request);
 
     const { status } = response;
 

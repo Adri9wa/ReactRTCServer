@@ -5,7 +5,7 @@ import StatusBar from '../../Components/Status Bar'
 import Styles from './styles.module.css'
 import { TitleText, Text } from 'rtc-ui-library';
 
-const socket = io.connect('http://localhost:8000') //connect socket to server
+const socket = io.connect(process.env.REACT_APP_HOST_API) //connect socket to server
 
 export default class ControlRoom extends Component{
     constructor(props){
