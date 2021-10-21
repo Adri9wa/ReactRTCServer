@@ -52,7 +52,7 @@ class SignUp extends React.Component {
 
         return (
             <div className={ Styles.mainCont }>
-                <TitleText className={Styles.title}>Registration page</TitleText>
+                <TitleText className={Styles.title}>Log in page</TitleText>
 
                 <Box className={Styles.registrationForm}>
                     <Grid container spacing={3}>
