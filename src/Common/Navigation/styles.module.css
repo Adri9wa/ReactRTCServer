@@ -87,6 +87,10 @@
     .children {
         padding: 16vh 0.5em 0 0.5em;
     }
+
+    .sideMenu:hover {
+        width: 80vw;
+    }
 }
 
 @media (prefers-reduced-motion: no-preference) {
