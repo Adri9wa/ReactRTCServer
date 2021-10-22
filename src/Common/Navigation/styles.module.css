@@ -77,10 +77,16 @@
 
 .children {
     padding-top: 16vh;
-    padding: 16vh 2em 0 2em;
+    padding: 16vh 20vw 0 20vw;
     min-height: 60vh;
     display: flex;
     justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+    .children {
+        padding: 16vh 0.5em 0 0.5em;
+    }
 }
 
 @media (prefers-reduced-motion: no-preference) {
