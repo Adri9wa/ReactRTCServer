@@ -35,9 +35,10 @@ class ResponseError extends Error {
  * 
  * @param {*} [ options = {} ]        - additional options for request
  * @param {*} [ options.rawResponse ] - Do not transform received response into json and return as is
+ * @param {*} [ options.noThrowingError ] - If true error will not be thrawed and nothing will be returned(useful if you do not depend on returned data)
  */
 export async function fetchAPI(method, endpoint = '', query = {}, body = {}, options = {}) {
-    const { rawResponse = false } = options;
+    const { rawResponse = false, noThrowingError=false } = options;
 
     const omittedQuery = _.omitBy( query, value => _.isString(value) && _.isEmpty(value)); //Remove empty strings
 
@@ -67,6 +68,10 @@ export async function fetchAPI(method, endpoint = '', query = {}, body = {}, opt
         case status >= 200 && status < 300:
             return rawResponse ? await response : await response.json();
         default:
-            throw new ResponseError(await response.json(), status);
+            if(noThrowingError) {
+                return undefined;
+            } else {
+                throw new ResponseError(await response.json(), status);
+            }
     }
 }

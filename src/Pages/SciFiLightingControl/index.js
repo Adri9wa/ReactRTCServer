@@ -40,7 +40,8 @@ export default class SciFiLightingControl extends Component{
                             "code": this.state.onOff? "16738455": "16761405" //Just light or off
                         }
                     }
-                }
+                },
+                { noThrowingError: true }
             )
         });
     }
@@ -61,12 +62,13 @@ export default class SciFiLightingControl extends Component{
                         "code": (type === "INCREASE")? "16754775": "16769055" //Increase or decrease
                     }
                 }
-            }
+            },
+            { noThrowingError: true }
         )
     }
 
     handleModeSelection = (key) => {
-        console.log("key: ", key);
+        console.log("Selected mode key: ", key);
         this.setState({selectedMode: key}, () => {
             fetchAPI(
                 'PUT',
@@ -82,7 +84,8 @@ export default class SciFiLightingControl extends Component{
                             "code": key
                         }
                     }
-                }
+                },
+                { noThrowingError: true }
             )
         });
     }
@@ -106,8 +109,6 @@ export default class SciFiLightingControl extends Component{
                     <Text>
                         Control your personal backlight system to make your life brighter!
                         Select desired mode and perform operations.
-                        <br />
-                        Some modes are disabled!
                     </Text>
                 </div>
 
@@ -143,7 +144,7 @@ export default class SciFiLightingControl extends Component{
                     (<Switcher onClick={() => this.handleModeSelection("16738455")} color={this.state.selectedMode === "16738455"? COLORS.success:COLORS.disabled} />)
                 )}
                 {this.renderLabeledComponent(
-                    "Twinkle fox",
+                    "Party mode",
                     (<Switcher onClick={() => this.handleModeSelection("16724175")} color={this.state.selectedMode === "16724175"? COLORS.success:COLORS.disabled} />)
                 )}
                 {this.renderLabeledComponent(
