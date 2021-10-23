@@ -24,9 +24,9 @@ export default class SciFiLightingControl extends Component{
         }
     }
 
-    handleOnOff = (newValue) => {
+    handleOnOff = (newValue, sendRequest = true) => {
         this.setState({onOff: newValue, selectedMode: newValue? "16738455": undefined}, () => {
-            fetchAPI(
+            sendRequest && fetchAPI(
                 'PUT',
                 '/updater',
                 null, 
@@ -47,7 +47,9 @@ export default class SciFiLightingControl extends Component{
     }
 
     handleIncreaseDecrease = (type) => {
-        console.log("Type: ", type);
+        if(!this.state.onOff) this.handleOnOff(true);
+
+        console.log("Operation type: ", type);
         fetchAPI(
             'PUT',
             '/updater',
@@ -68,7 +70,9 @@ export default class SciFiLightingControl extends Component{
     }
 
     handleModeSelection = (key) => {
+        if(!this.state.onOff) this.handleOnOff(true, false);
         console.log("Selected mode key: ", key);
+
         this.setState({selectedMode: key}, () => {
             fetchAPI(
                 'PUT',
