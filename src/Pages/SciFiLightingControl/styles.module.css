@@ -14,10 +14,15 @@
     align-items: center;
 }
 
+.buttonsCont > Button{
+    margin: 0 0.1em;
+}
+
 .labeledComponent {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 0.6em;
 }
 
 .label {
@@ -28,4 +33,15 @@
     width: 30%;
     display: flex;
     justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+    .buttonsCont{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    
+    .buttonsCont > Button{
+        margin: 0.1em 0;
+    }
 }
