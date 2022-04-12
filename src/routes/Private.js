@@ -11,6 +11,7 @@ import {
 } from 'Pages';
 
 import book from './book';
+import Devices from "../Pages/Devices";
 
 /**
  * All those components will be available by authenticated users only
@@ -38,6 +39,11 @@ export default class Public extends Component {
                     exact
                     component={ SmartPlugControl }
                     path={ book.smartPlug }
+                />
+                <Route
+                    exact
+                    component={ Devices }
+                    path={ book.devices }
                 />
 
                 <Redirect to={ book.home } /> {/*Redirect to the default page*/}

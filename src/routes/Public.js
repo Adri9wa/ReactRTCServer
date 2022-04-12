@@ -10,6 +10,7 @@ import {
 } from 'Pages';
 
 import book from './book';
+import Devices from "../Pages/Devices";
 
 /**
  * All those components will be available by users without authentication
@@ -32,6 +33,11 @@ export default class Public extends Component {
                     exact
                     render={ props => <LogIn { ...props } /> }
                     path={ book.logIn }
+                />
+                <Route
+                    exact
+                    component={ Devices }
+                    path={ book.devices }
                 />
 
                 <Redirect to={ book.home } /> {/*Redirect to the default page*/}

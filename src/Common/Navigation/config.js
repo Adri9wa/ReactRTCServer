@@ -39,6 +39,12 @@ function configGenerator({token}) {
             path: book.smartPlug,
             visible: token? true: false,
         },
+        {
+            title: "DEVICES",
+            path: book.devices,
+            // visible: token? true: false,
+            visible: true,
+        },
     ];
 }
 

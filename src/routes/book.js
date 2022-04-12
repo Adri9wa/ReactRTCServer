@@ -7,6 +7,7 @@ const book = Object.freeze({
     controlRoom: '/controlRoom',
     sciFiBacklight: '/sciFiBacklight',
     smartPlug: '/smartPlug',
+    devices: '/devices',
 });
 
 export default book;
