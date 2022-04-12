@@ -10,8 +10,8 @@ import qs from 'qs';
 // import store from 'store/store';
 // import { selectAuthToken } from 'Common/redux/duck';
 
-export const API = process.env.REACT_APP_HOST_API;
-// export const API = 'http://127.0.0.1:8000';
+// export const API = process.env.REACT_APP_HOST_API;
+export const API = 'http://127.0.0.1:7000';
 
 class ResponseError extends Error {
     constructor(response, status) {
