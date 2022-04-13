@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import Styles from './styles.module.css'
 import { TitleText, Text, Switcher } from 'rtc-ui-library';
+import { withRouter } from "react-router";
+import { selectSmartPlug, fetchSmartPlug } from './redux/duck';
+import {connect} from "react-redux";
 
 import { fetchAPI } from 'utils';
 
@@ -11,8 +14,16 @@ export const COLORS = {
     neutral: '#28C4C4',
 };
 
+const mapStateToProps = state => ({
+    smartPlug: selectSmartPlug(state),
+});
 
-export default class SmartPlugControl extends Component{
+const mapDispatchToProps = {
+    fetchSmartPlug,
+};
+
+
+class SmartPlugControl extends Component{
     constructor(props){
         super(props);
 
@@ -20,7 +31,12 @@ export default class SmartPlugControl extends Component{
             onOff: false, //On Off value of the lamp
         }
     }
-
+    
+    componentDidMount() {
+        const currentDeviceID = this.props.match.params.id;
+        this.props.fetchSmartPlug(currentDeviceID);
+    }
+    
     handleOnOff = (newValue) => {
         this.setState({onOff: newValue}, () => {
             fetchAPI(
@@ -52,16 +68,25 @@ export default class SmartPlugControl extends Component{
     }
         
     render(){
+        const plug = this.props.smartPlug;
+        console.log('ID from params: ', this.props.match.params.id);
+        console.log('Plug data: ', this.props.smartPlug);
         return(
             <div className={Styles.mainCont}>
                 <div className={Styles.title}>
                     <TitleText>smart plug control</TitleText>
                 </div>
-                <div>
-                    <Text>
-                        Control every non-smart device and make it kind a smart with a plug.
-                        Only 99.99$ and it will be yours!
-                    </Text>
+                <div className={Styles.deviceContainer} key={plug.id}>
+                    <div>
+                        <span className={Styles.deviceID}>ID: {plug.id}</span>
+                        <span className={Styles.deviceCode}>Code: {plug.code}</span>
+                        <span>{plug.name}</span>
+                    </div>
+                    <div className={Styles.deviceDescription}>
+                        <Text>
+                            {plug.description}
+                        </Text>
+                    </div>
                 </div>
 
                 <br />
@@ -74,3 +99,5 @@ export default class SmartPlugControl extends Component{
         )
     }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(SmartPlugControl));

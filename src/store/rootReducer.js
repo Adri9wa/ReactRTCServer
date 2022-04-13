@@ -9,6 +9,7 @@ import _ from 'lodash';
 // proj
 import CommonReducer, {mainModuleName as commonModule} from 'Common/redux/duck';
 import DevicesReducer, {moduleName as devicesModule} from 'Pages/Devices/redux/duck';
+import SmartPlugReducer, {moduleName as smartPlugModule} from 'Pages/SmartPlugControl/redux/duck';
 import SignUpReducer, {moduleName as signUpModule} from 'Pages/SignUp/redux/duck';
 import LogInReducer, {moduleName as logInModule} from 'Pages/LogIn/redux/duck';
 
@@ -34,9 +35,10 @@ const persistedState = {
 
 /** There should be placed object that have storage that will be dropped after reload */
 const appState = {
-    [ devicesModule ]:  DevicesReducer,
-    [ signUpModule ]:   SignUpReducer,
-    [ logInModule ]:    LogInReducer,
+    [ devicesModule ]:    DevicesReducer,
+    [ smartPlugModule ]:  SmartPlugReducer,
+    [ signUpModule ]:     SignUpReducer,
+    [ logInModule ]:      LogInReducer,
 };
 
 const appReducer = combineReducers({ ...persistedState, ...appState });
