@@ -6,6 +6,8 @@ import {selectSmartPlug, fetchSmartPlug, selectParameters, selectParametersStats
 import {connect} from "react-redux";
 
 import { fetchAPI } from 'utils';
+import Block from "../../Components/Block";
+import SpanBlock from "../../Components/SpanBlock";
 
 export const COLORS = {
     success: '#28C438',
@@ -68,6 +70,19 @@ class SmartPlugControl extends Component{
             </div>
         );
     }
+    
+    renderParameter = (parameter) => {
+        return <Block key={parameter.id}>
+            <SpanBlock className={Styles.parameterID}>{parameter.id}</SpanBlock>
+            <SpanBlock className={Styles.parameterKey}>{parameter.key}</SpanBlock>
+            {
+                parameter.value
+                    ? <SpanBlock className={Styles.parameterValue}>{parameter.value}</SpanBlock>
+                    : "NO_VALUE"
+            }
+            <SpanBlock className={Styles.parameterType}>{parameter.type}</SpanBlock>
+        </Block>
+    }
         
     render(){
         const plug = this.props.smartPlug;
@@ -79,10 +94,10 @@ class SmartPlugControl extends Component{
                 <div className={Styles.title}>
                     <TitleText>smart plug control</TitleText>
                 </div>
-                <div className={Styles.deviceContainer} key={plug.id}>
+                <Block>
                     <div>
-                        <span className={Styles.deviceID}>ID: {plug.id}</span>
-                        <span className={Styles.deviceCode}>Code: {plug.code}</span>
+                        <SpanBlock>ID: {plug.id}</SpanBlock>
+                        <SpanBlock className={Styles.deviceCode}>Code: {plug.code}</SpanBlock>
                         <span>{plug.name}</span>
                     </div>
                     <div className={Styles.deviceDescription}>
@@ -90,10 +105,15 @@ class SmartPlugControl extends Component{
                             {plug.description}
                         </Text>
                     </div>
-                </div>
+                </Block>
 
                 <br />
-
+    
+                {
+                    this.props.parameters.map((parameter => {
+                        return this.renderParameter(parameter);
+                    }))
+                }
                 {this.renderLabeledComponent(
                     "On/Off",
                     (<Switcher onClick={() => this.handleOnOff(!this.state.onOff)} type='rectangular' color={this.state.onOff ? COLORS.neutral: COLORS.disabled} />)
