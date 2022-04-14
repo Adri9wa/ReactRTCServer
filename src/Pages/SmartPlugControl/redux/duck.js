@@ -4,10 +4,16 @@ const prefix = `pages/${moduleName}`;
 
 export const FETCH_SMART_PLUG = `${prefix}/FETCH_SMART_PLUG`;
 export const SET_SMART_PLUG = `${prefix}/SET_SMART_PLUG`;
+export const SET_SMART_PLUG_PARAMETERS = `${prefix}/SET_SMART_PLUG_PARAMETERS`;
 
 /** Reducer **/
 const ReducerState = {
     smartPlug:    {},
+    parametersFilters: {
+        page: 1,
+    },
+    parameters:   [],
+    parametersStats: {},
 };
 
 export default function reducer(state = ReducerState, action) {
@@ -18,6 +24,12 @@ export default function reducer(state = ReducerState, action) {
                 ...state,
                 smartPlug: payload,
             };
+        case SET_SMART_PLUG_PARAMETERS:
+            return {
+                ...state,
+                parameters: payload.parameters,
+                parametersStats: payload.parametersStats,
+            };
             
         default: return state;
     }
@@ -25,6 +37,10 @@ export default function reducer(state = ReducerState, action) {
 
 /** Selectors **/
 export const selectSmartPlug = (state) => state[moduleName].smartPlug;
+
+export const selectParametersFilters = (state) => state[moduleName].parametersFilters;
+export const selectParameters = (state) => state[moduleName].parameters;
+export const selectParametersStats = (state) => state[moduleName].parametersStats;
 
 /** Action Creators **/
 export const fetchSmartPlug = (id) => ({
@@ -35,4 +51,9 @@ export const fetchSmartPlug = (id) => ({
 export const setSmartPlug = (value) => ({
     type: SET_SMART_PLUG,
     payload: value,
+});
+
+export const setParameters = ({parameters, stats}) => ({
+    type: SET_SMART_PLUG_PARAMETERS,
+    payload: {parameters, stats},
 });

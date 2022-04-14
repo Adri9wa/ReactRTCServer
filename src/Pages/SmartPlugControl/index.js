@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Styles from './styles.module.css'
 import { TitleText, Text, Switcher } from 'rtc-ui-library';
 import { withRouter } from "react-router";
-import { selectSmartPlug, fetchSmartPlug } from './redux/duck';
+import {selectSmartPlug, fetchSmartPlug, selectParameters, selectParametersStats} from './redux/duck';
 import {connect} from "react-redux";
 
 import { fetchAPI } from 'utils';
@@ -16,6 +16,8 @@ export const COLORS = {
 
 const mapStateToProps = state => ({
     smartPlug: selectSmartPlug(state),
+    parameters: selectParameters(state),
+    parametersStats: selectParametersStats(state),
 });
 
 const mapDispatchToProps = {
@@ -71,6 +73,7 @@ class SmartPlugControl extends Component{
         const plug = this.props.smartPlug;
         console.log('ID from params: ', this.props.match.params.id);
         console.log('Plug data: ', this.props.smartPlug);
+        console.log('Plug data: ', this.props.parameters, this.props.parametersStats);
         return(
             <div className={Styles.mainCont}>
                 <div className={Styles.title}>
