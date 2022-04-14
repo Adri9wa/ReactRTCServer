@@ -3,6 +3,8 @@ import {connect} from "react-redux";
 import {fetchDevices, selectDevices} from "./redux/duck";
 import Styles from './styles.module.css';
 import history from 'store/history';
+import Block from "../../Components/Block";
+import SpanBlock from "../../Components/SpanBlock";
 
 const mapStateToProps = state => ({
     devices: selectDevices(state),
@@ -19,11 +21,11 @@ class Devices extends Component {
     }
     
     renderDevice(device) {
-        return <div className={Styles.deviceContainer} key={device.id}>
-            <span className={Styles.deviceID}>ID: {device.id}</span>
-            <span className={Styles.deviceCode}>Code: {device.deviceCode}</span>
+        return <Block key={device.id}>
+            <SpanBlock>ID: {device.id}</SpanBlock>
+            <SpanBlock className={Styles.deviceCode}>Code: {device.deviceCode}</SpanBlock>
             <span>{device.name}</span>
-        </div>
+        </Block>
     }
     
     render() {
@@ -40,7 +42,6 @@ class Devices extends Component {
                 {this.props.devices.map(device => {
                     return this.renderDevice(device);
                 })}
-                {/*{JSON.stringify(this.props.devices)}*/}
             </div>
         )
     }

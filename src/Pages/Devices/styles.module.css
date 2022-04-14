@@ -2,25 +2,6 @@
     width: 100%;
 }
 
-.deviceContainer {
-    border: 0.1rem solid black;
-    border-radius: 0.2rem;
-    width: 100%;
-    margin: 0.1rem 0rem;
-    padding: 0.15rem;
-
-    background: linear-gradient(180deg, #363636 0%, #191919 100%);
-    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.deviceID, .deviceCode {
-    display: inline-block;
-    background: rgba(0, 0, 0, 0.4);
-    margin: 0.1rem 0.4rem;
-    padding: 0.15rem;
-    border-radius: 0.1rem;
-}
-
 .deviceCode {
     width: 20vw;
 }
