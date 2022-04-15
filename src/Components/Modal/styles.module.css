@@ -12,12 +12,15 @@
 
 .modalInvisible {
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
 }
 
 .modalContent {
     width: 500px;
-    background-color: #fff;
+    border-radius: 0.4rem;
+    background: linear-gradient(192.04deg, #181818 19.27%, #1C1C1C 65.1%, #3A3A3A 100%);
+    color: #19AA00;
 }
 
 .modalHeader,
@@ -27,10 +30,11 @@
 
 .modalTitle {
     margin: 0;
+    color: #00E0FF;
 }
 
 .modalBody {
     padding: 10px;
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
 }
