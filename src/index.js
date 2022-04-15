@@ -5,8 +5,6 @@ import App from './App';
 require('dotenv').config(); //Configure environment variables
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <App />,
+    document.getElementById('root')
 );
