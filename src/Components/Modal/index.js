@@ -12,48 +12,42 @@ import Styles from "./styles.module.css";
  * @return {}
  * @constructor
  */
-const Modal = props => {
-    const closeOnEscapeKeyDown = e => {
-        if ((e.charCode || e.keyCode) === 27) {
-            props.onClose();
-        }
-    };
+export class Modal extends React.Component {
+    // const closeOnEscapeKeyDown = e => {
+    //     if ((e.charCode || e.keyCode) === 27) {
+    //         props.onClose();
+    //     }
+    // };
+    //
+    // useEffect(() => {
+    //     document.body.addEventListener("keydown", closeOnEscapeKeyDown);
+    //     return function cleanup() {
+    //         document.body.removeEventListener("keydown", closeOnEscapeKeyDown);
+    //     };
+    //
+    //     setTimeout(() => {
+    //         console.log('Auto close')
+    //         if(props.onClose) props.onClose();
+    //     }, 2000)
+    // }, []);
+    //
     
-    useEffect(() => {
-        document.body.addEventListener("keydown", closeOnEscapeKeyDown);
-        return function cleanup() {
-            document.body.removeEventListener("keydown", closeOnEscapeKeyDown);
-        };
-    }, []);
-    
-    if(props.visible) {
-        return <div className={Styles.modal} onClick={props.onClose}>
+    render() {
+        return <div className={this.props.visible? Styles.modal: Styles.modalInvisible} onClick={this.props.onClose}>
             <div className={Styles.modalContent} onClick={e => e.stopPropagation()}>
                 <div className={Styles.modalHeader}>
-                    <h4 className={Styles.modalTitle}>{props.title}</h4>
+                    <h4 className={Styles.modalTitle}>{this.props.title}</h4>
                 </div>
-                <div className={Styles.modalBody}>{props.children}</div>
+                <div className={Styles.modalBody}>{this.props.children}</div>
                 <div className={Styles.modalFooter}>
-                    <button onClick={props.onClose}>
+                    <button onClick={this.props.onClose}>
                         Close
                     </button>
                 </div>
             </div>
-        </div>
-    } else {
-        return <div></div>;
+        </div>;
     }
     
-    // return ReactDOM.createPortal(
-    //     <CSSTransition
-    //         in={props.visible}
-    //         unmountOnExit
-    //         timeout={{ enter: 0, exit: 300 }}
-    //     >
-    //
-    //     </CSSTransition>,
-    //     document.getElementById("root")
-    // );
 };
 
 export default Modal;
