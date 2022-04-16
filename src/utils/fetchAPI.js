@@ -36,11 +36,16 @@ class ResponseError extends Error {
  * @param {*} [ options = {} ]        - additional options for request
  * @param {*} [ options.rawResponse ] - Do not transform received response into json and return as is
  * @param {*} [ options.noThrowingError ] - If true error will not be thrawed and nothing will be returned(useful if you do not depend on returned data)
+ * @param {*} [ options.removeEmptyStrings = true ] - If true error will remove all empty strings
  */
 export async function fetchAPI(method, endpoint = '', query = {}, body = {}, options = {}) {
-    const { rawResponse = false, noThrowingError=false } = options;
+    const {
+        rawResponse = false,
+        noThrowingError=false,
+        removeEmptyStrings=true
+    } = options;
 
-    const omittedQuery = _.omitBy( query, value => _.isString(value) && _.isEmpty(value)); //Remove empty strings
+    const omittedQuery = _.omitBy( query, value => removeEmptyStrings && _.isString(value) && _.isEmpty(value)); //Remove empty strings
 
     const queryString = qs.stringify(omittedQuery, {
         skipNulls:   true,
