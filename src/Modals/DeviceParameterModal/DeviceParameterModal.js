@@ -3,9 +3,10 @@ import {Button, Input, MenuItem, Select} from "rtc-ui-library";
 import Modal from "../../Components/Modal";
 import Styles from './styles.module.css';
 import {
+    createDeviceParameter,
     fetchDeviceParameter,
     selectDeviceParameter,
-    setDeviceParameter,
+    setDeviceParameter, setDeviceParameterCreatedCallback,
     setDeviceParameterUpdatedCallback,
     updateDeviceParameter
 } from "./redux/duck";
@@ -20,7 +21,9 @@ const mapDispatchToProps = {
     fetchDeviceParameter,
     setDeviceParameter,
     updateDeviceParameter,
+    createDeviceParameter,
     setDeviceParameterUpdatedCallback,
+    setDeviceParameterCreatedCallback,
 };
 
 
@@ -30,7 +33,9 @@ const mapDispatchToProps = {
  * @property buttonText - text of modal button
  * @property mode - one of "EDIT", "CREATE"
  * @param [props.onUpdate] - () => void, triggered when parameter updated(it does not mean that modal already fetched new data)
+ * @param [props.onCreate] - () => void, triggered when parameter created(it does not mean that modal already fetched new data)
  * @property parameterID - if we are in edit mode this is used to fetch data
+ * @property deviceID - Required if we are in CREATE mode
  */
 class DeviceParameterModal extends Component {
     constructor(props) {
@@ -45,6 +50,9 @@ class DeviceParameterModal extends Component {
     componentDidMount() {
         if(this.props.onUpdate) {
             this.props.setDeviceParameterUpdatedCallback(this.props.onUpdate);
+        }
+        if(this.props.onCreate) {
+            this.props.setDeviceParameterCreatedCallback(this.props.onCreate);
         }
         if(this.props.parameterID) {
             // we are in edit mode
@@ -67,17 +75,30 @@ class DeviceParameterModal extends Component {
             <span>
                 <Button onClick={() => this.setState({visible: true})}>{this.props.buttonText}</Button>
                 <Modal
-                    title={'Create parameter for device'}
+                    title={
+                        this.props.mode === "EDIT"
+                            ? 'Edit parameter of device'
+                            : 'Create parameter for device'
+                    }
                     visible={this.state.visible}
                     onClose={() => {
                         this.onClose();
                     }}
                     footer={<div>
                         <Button onClick={() => {
-                            this.props.updateDeviceParameter();
+                            if(this.props.mode === "EDIT") {
+                                this.props.updateDeviceParameter();
+                            } else {
+                                this.props.createDeviceParameter(this.props.deviceID);
+                            }
+                            
                             this.onClose();
                         }}>
-                            UPDATE
+                            {
+                                this.props.mode === "EDIT"
+                                    ? 'UPDATE'
+                                    : 'CREATE'
+                            }
                         </Button>
                     </div>}
                 >

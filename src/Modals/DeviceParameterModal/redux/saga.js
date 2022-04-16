@@ -10,7 +10,10 @@ import {
     setDeviceParameter,
     fetchDeviceParameter,
     selectDeviceParameter,
-    UPDATE_DEVICE_PARAMETER, selectDeviceParameterUpdatedCallback,
+    UPDATE_DEVICE_PARAMETER,
+    selectDeviceParameterUpdatedCallback,
+    CREATE_DEVICE_PARAMETER,
+    selectDeviceParameterCreatedCallback,
 } from './duck';
 
 export function* fetchDeviceParameterSaga() {
@@ -62,9 +65,39 @@ export function* updateDeviceParameterSaga() {
     }
 }
 
+export function* createDeviceParameterSaga() {
+    while (true) {
+        try {
+            const {payload: deviceID} = yield take(CREATE_DEVICE_PARAMETER);
+            const parameter = yield select(selectDeviceParameter);
+            const deviceCreatedCallback = yield select(selectDeviceParameterCreatedCallback);
+            
+            try {
+                yield call(fetchAPI, 'PUT', `/devices/${deviceID}/createParameter`, {
+                    type: parameter.type,
+                    value: parameter.value,
+                    key: parameter.key,
+                }, null, {
+                    removeEmptyStrings: false,
+                });
+                
+                yield put(fetchDeviceParameter);
+                
+                if(deviceCreatedCallback) yield call(deviceCreatedCallback);
+            } catch (error) {
+                console.error(error);
+            }
+            
+        } catch (error) {
+            console.error(error);
+        }
+    }
+}
+
 export function* saga() {
     yield all([
         call(fetchDeviceParameterSaga),
         call(updateDeviceParameterSaga),
+        call(createDeviceParameterSaga),
     ]);
 }

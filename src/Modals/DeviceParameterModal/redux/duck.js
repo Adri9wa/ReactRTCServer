@@ -5,7 +5,9 @@ const prefix = `modals/${moduleName}`;
 export const FETCH_DEVICE_PARAMETER = `${prefix}/FETCH_DEVICE_PARAMETER`;
 export const SET_DEVICE_PARAMETER = `${prefix}/SET_DEVICES`;
 export const SET_DEVICE_PARAMETER_UPDATED_CB = `${prefix}/SET_DEVICE_PARAMETER_UPDATED_CB`;
+export const SET_DEVICE_PARAMETER_CREATED_CB = `${prefix}/SET_DEVICE_PARAMETER_CREATED_CB`;
 export const UPDATE_DEVICE_PARAMETER = `${prefix}/UPDATE_DEVICE_PARAMETER`;
+export const CREATE_DEVICE_PARAMETER = `${prefix}/CREATE_DEVICE_PARAMETER`;
 
 /** Reducer **/
 const ReducerState = {
@@ -14,7 +16,8 @@ const ReducerState = {
         value: "",
         type: "CUSTOM"
     },
-    deviceParameterUpdatedCB: (() => {})
+    deviceParameterUpdatedCB: (() => {}),
+    deviceParameterCreatedCB: (() => {}),
 };
 
 export default function reducer(state = ReducerState, action) {
@@ -33,6 +36,11 @@ export default function reducer(state = ReducerState, action) {
                 ...state,
                 deviceParameterUpdatedCB: payload,
             };
+        case SET_DEVICE_PARAMETER_CREATED_CB:
+            return {
+                ...state,
+                deviceParameterCreatedCB: payload,
+            };
             
         default: return state;
     }
@@ -41,6 +49,7 @@ export default function reducer(state = ReducerState, action) {
 /** Selectors **/
 export const selectDeviceParameter = (state) => state[moduleName].deviceParameter;
 export const selectDeviceParameterUpdatedCallback = (state) => state[moduleName].deviceParameterUpdatedCB;
+export const selectDeviceParameterCreatedCallback = (state) => state[moduleName].deviceParameterCreatedCB;
 
 /** Action Creators **/
 export const fetchDeviceParameter = (parameterID) => ({
@@ -58,6 +67,16 @@ export const setDeviceParameterUpdatedCallback = (callback) => ({
     payload: callback,
 });
 
+export const setDeviceParameterCreatedCallback = (callback) => ({
+    type: SET_DEVICE_PARAMETER_CREATED_CB,
+    payload: callback,
+});
+
 export const updateDeviceParameter = () => ({
     type: UPDATE_DEVICE_PARAMETER,
+});
+
+export const createDeviceParameter = (deviceID) => ({
+    type: CREATE_DEVICE_PARAMETER,
+    payload:deviceID
 });
