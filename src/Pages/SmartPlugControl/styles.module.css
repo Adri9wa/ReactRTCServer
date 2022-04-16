@@ -30,20 +30,27 @@
     justify-content: right;
 }
 
+.parameterContainer {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
 .deviceCode {
-    width: 20vw;
-}
-
-.parameterID {
-    width: 5vw;
-}
-
-.parameterKey {
     width: 15vw;
 }
 
-.parameterValue {
-    width: 20vw;
+.parameterDataContainer {
+    width: 75%;
+    padding: 0.2rem 0;
+}
+
+.parameterID {
+    width: 3vw;
+}
+
+.parameterKey, .parameterValue {
+    width: 10vw;
 }
 
 .parameterType {
