@@ -76,17 +76,58 @@ class SmartPlugControl extends Component{
     }
     
     renderParameter = (parameter) => {
+        console.log('parameter: ', parameter)
         return <div key={parameter.id} className={Styles.parameterContainer}>
             <div className={Styles.parameterDataContainer}>
                 <Block>
-                    <SpanBlock className={Styles.parameterID}>{parameter.id}</SpanBlock>
-                    <SpanBlock className={Styles.parameterKey}>{parameter.key}</SpanBlock>
-                    {
-                        parameter.value
-                            ? <SpanBlock className={Styles.parameterValue}>{parameter.value}</SpanBlock>
-                            : "NO_VALUE"
-                    }
-                    <SpanBlock className={Styles.parameterType}>{parameter.type}</SpanBlock>
+                    <div>
+                        <SpanBlock className={Styles.parameterID}>{parameter.id}</SpanBlock>
+                        <SpanBlock className={Styles.parameterKey}>{parameter.key}</SpanBlock>
+                        {
+                            <SpanBlock className={Styles.parameterValue}>{parameter.value || "NO_VALUE"}</SpanBlock>
+                        }
+                        <SpanBlock className={Styles.parameterType}>{parameter.type}</SpanBlock>
+                    </div>
+                    <div className={Styles.parameterControlsContainer}>
+                        <div className={Styles.parameterControlsContainerHeader}>
+                            <div title={parameter.description || "No description provided"}>
+                                <SpanBlock className={Styles.parameterName}>{parameter.name || "NO_NAME"}</SpanBlock>
+                            </div>
+                            <div>
+                                <Text >
+                                    {parameter.description || "No description provided"}
+                                </Text>
+                            </div>
+                        </div>
+                        <div className={Styles.parameterControlsContainerControls}>
+                            {(() => {
+                                switch (parameter.type) {
+                                    case "CUSTOM":
+                                        return <Text>Custom types bust be supported manually</Text>
+                                    case "BOOLEAN":
+                                        return <Switcher
+                                            onClick={() => {
+                                                // this.handleOnOff(!this.state.onOff);
+                                                const currentParamValue = parameter.value === 'true';
+                                                
+                                                const newValue =  !currentParamValue;
+                                                
+                                                fetchAPI("POST", `/updateDeviceParameter/${parameter.id}`, {value: newValue})
+                                                    .then(() => {
+                                                        this.props.fetchSmartPlug(this.state.currentDeviceID);
+                                                    });
+                                                
+                                            }}
+                                            type='rectangular'
+                                            color={parameter.value==='true' ? COLORS.neutral: COLORS.disabled}
+                                        />
+                                    default:
+                                        return <Text>Yet unsupported data type, no handler available</Text>
+                                }
+                            })()}
+                        </div>
+                    </div>
+                    
                 </Block>
             </div>
             
@@ -98,32 +139,33 @@ class SmartPlugControl extends Component{
                     this.props.fetchSmartPlug(currentDeviceID);
                 }}
             />
-            <Button
-                onClick={() => {
-                    // Hardcoded
-                    // eslint-disable-next-line no-restricted-globals
-                    const result = confirm('Are you sure you want ot delete?')
-                    if(result) {
-                        fetchAPI('DELETE', '/deleteDeviceParameter/'+parameter.id)
-                            .then(async () => {
-                                this.props.fetchSmartPlug(this.state.currentDeviceID);
-                            })
-                            .catch((e) => {
-                                console.error(e)
-                            });
-                    }
-                }}
-            >
-                DEL
-            </Button>
+            <div className={Styles.parameterDeleteButton}>
+                <Button
+                    onClick={() => {
+                        // Hardcoded
+                        // eslint-disable-next-line no-restricted-globals
+                        const result = confirm('Are you sure you want ot delete?')
+                        if(result) {
+                            fetchAPI('DELETE', '/deleteDeviceParameter/'+parameter.id)
+                                .then(async () => {
+                                    this.props.fetchSmartPlug(this.state.currentDeviceID);
+                                })
+                                .catch((e) => {
+                                    console.error(e)
+                                });
+                        }
+                    }}
+                >
+                    DEL
+                </Button>
+            </div>
+            
         </div>
     }
         
     render(){
         const plug = this.props.smartPlug;
-        console.log('ID from params: ', this.props.match.params.id);
         console.log('Plug data: ', this.props.smartPlug);
-        console.log('Plug data: ', this.props.parameters, this.props.parametersStats);
         return(
             <div className={Styles.mainCont}>
                 <div className={Styles.title}>
@@ -157,10 +199,6 @@ class SmartPlugControl extends Component{
                         this.props.fetchSmartPlug(this.state.currentDeviceID);
                     }}
                 />
-                {this.renderLabeledComponent(
-                    "On/Off",
-                    (<Switcher onClick={() => this.handleOnOff(!this.state.onOff)} type='rectangular' color={this.state.onOff ? COLORS.neutral: COLORS.disabled} />)
-                )}
             </div>
         )
     }

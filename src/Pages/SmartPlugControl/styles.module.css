@@ -30,14 +30,21 @@
     justify-content: right;
 }
 
+.deviceCode {
+    width: 15vw;
+}
+
+.deviceDescription {
+    margin: 0.1rem 0.4rem;
+    padding: 0.15rem;
+}
+
+/* -------- parameter -------------------------- */
+
 .parameterContainer {
     display: flex;
     width: 100%;
     justify-content: space-between;
-}
-
-.deviceCode {
-    width: 15vw;
 }
 
 .parameterDataContainer {
@@ -45,11 +52,15 @@
     padding: 0.2rem 0;
 }
 
+.parameterDeleteButton {
+    height: 1.2rem;
+}
+
 .parameterID {
     width: 3vw;
 }
 
-.parameterKey, .parameterValue {
+.parameterKey, .parameterValue, .parameterName {
     width: 10vw;
 }
 
@@ -58,7 +69,28 @@
     width: 10vw;
 }
 
-.deviceDescription {
-    margin: 0.1rem 0.4rem;
-    padding: 0.15rem;
+.parameterName {
+    color: #00E0FF;
+    background-color: #363636 !important;
 }
+
+/* ---------------------------------- */
+
+/* ----------controls container------------------------ */
+
+.parameterControlsContainer {
+}
+
+.parameterControlsContainerHeader {
+    padding: 0.2rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.parameterControlsContainerControls {
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* ---------------------------------- */
