@@ -6,6 +6,7 @@ import {Button} from "rtc-ui-library";
  * Added this modal, but it is not finished, and it doesn't work completely
  * @param props.onClose
  * @param props.visible
+ * @param props.footer - Custom footer
  * @param props.title
  * @param props.children - children node
  * @constructor
@@ -19,9 +20,15 @@ export class Modal extends React.Component {
                 </div>
                 <div className={Styles.modalBody}>{this.props.children}</div>
                 <div className={Styles.modalFooter}>
-                    <Button onClick={this.props.onClose}>
-                        Close
-                    </Button>
+                    {
+                        this.props.footer
+                            ? this.props.footer
+                            : (
+                                <Button onClick={this.props.onClose}>
+                                    Close
+                                </Button>
+                            )
+                    }
                 </div>
             </div>
         </div>;
